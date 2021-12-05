@@ -1,7 +1,40 @@
-input {
+/* li {
+    width: 100px;
+    height: 30px;
     background-color: orange;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 5px 5px 0 0;
 }
 
-input:hover {
-    background-color: orangered;
+li:hover {
+    background-color: gainsboro;
+    border: 2px blue solid;
+} */
+
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+body {
+    padding: 20px;
+}
+a {text-decoration: none;}
+
+.tab {
+    font-size: 0;
+    text-align: center;
+}
+
+.tab > li {
+    display: inline-block;
+}
+
+.tab > li + li {margin-left: 2px;}
+
+.tab > li > a {
+    font-size: 16px;    
+    padding: 10px 20px 8px;
+    display: block;
+    color: white;
+    background-color: black;
+    border-radius: 10px 10px 0 0;
 }
