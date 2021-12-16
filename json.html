@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+<script>
+// const 요청URL = "http://jsonplaceholder.typicode.com/photos/"
+// const 요청객체 = new XMLHttpRequest();
+
+// 요청객체.open('GET', 요청URL);
+// 요청객체.responseType = 'json';
+// 요청객체.send();
+// 요청객체.onload = () => {
+//     start(요청객체.response);
+// }
+
+fetch("http://jsonplaceholder.typicode.com/photos/")
+    .then( res => res.json() )
+    // .then( function (res) { return res.json() } )
+    .then( obj => {start(obj)} ) // ES6 코드
+
+function start (photos) {
+    const ulElem = document.createElement('ul');
+    document.querySelector('#app').appendChild(ulElem);
+
+    for (let i = 0; i < 100; i++) {
+        const liElem = document.createElement('li');
+        const imgElem = document.createElement('img');
+        const pElem = document.createElement('p');
+        imgElem.src = photos[i].thumbnailUrl;
+        pElem.textContent = photos[i].title;
+        liElem.appendChild(imgElem);
+        liElem.appendChild(pElem);
+        ulElem.appendChild(liElem);
+    }
+}
+</script>
+</body>
+</html>
